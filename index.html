@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groupes de musique</title>
+  <link rel="stylesheet" href="public/css/index.css">
+  <link rel="stylesheet" href="public/css/search.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="public/css/map.css">
+  <script src="public/js/map.js"></script>
+  <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <h1 class="logo">Groopie Tracker</h1>
+        <div class="search">
+          <input type="text" id="search-input" placeholder="Rechercher un artiste">
+          <div class="suggestions">
+            <ul id="suggestion-list"></ul>
+          </div>
+          <select id="sort-select">
+            <option value="creation">Trier par date de création</option>
+            <option value="first-album">Trier par date du premier album</option>
+            <option value="members">Trier par nombre de membres</option>
+            <option value="location">Trier par lieux de concerts</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <button id="toggleButton">\</button>
+  <div id="popupContainer">
+      <div id="popupContent">
+          <div>
+              <div class="searchBox">
+                  <input class="searchInput" id="search" type="text" name="" placeholder="Votre recherche..."
+                      value="Roubaix, France">
+                  <button class="searchButton" id="submit" href="#">
+                      <i class="far fa-search"></i>
+                  </button>
+              </div>
+              <div class="contact-in" class="closed">
+                  <div class="contact-map">
+                      <div id="map"></div>
+                  </div>
+                  <div class="resultData" id="resultData"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <script src="public/js/popup.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXenYgfAGs6WMZkolgv_LkJFHqjF9BvuY&callback=initMap&libraries"></script>
+
+
+  <main>
+    <div class="container">
+      <section class="slider" aria-hidden="true">
+        <div class="slides" id="Slides">
+          {{range .Groups}}
+          <div class="profile-card" value="{{.ID}}">
+            <div class="group-header">
+              <h1 id="Group">{{.Name}}</h1>
+              <img class="group-image" src="{{.Image}}">
+            </div>
+            <div class="group-body dates-right">
+              <div class="group-info">
+                <p><strong>Année de création :</strong> <span id="CreationDate">{{.CreationDate}}</span></p>
+                <p><strong>Sortie du premier album :</strong> <span id="FirstAlbum">{{.FirstAlbum}}</span></p>
+                <p><strong>Membres du groupe :</strong></p>
+                <ul>
+                  {{range .Members}}
+                  <li class="member" id="Member">{{.}}</li>
+                  {{end}}
+                </ul>
+              </div>
+              <div class="group-relations">
+                <h3>Dates de parution du groupe :</h3>
+                <div class="dates">
+                  {{range $location, $dates := .Relations.DatesLocations}}
+                  <button id="Location" class="locations">{{$location}} :</button>
+                  <ul>
+                    {{range $dates}}
+                    <li>{{.}}</li>
+                    {{end}}
+                  </ul>
+                  {{end}}
+                </div>
+              </div>
+            </div>
+          </div>
+          {{end}}
+        </div>
+      </section>
+      
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Groupes de musique. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="public/js/search.js"></script>
+</body>
+
+</html>

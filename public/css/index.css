@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+     padding: 10px 1; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 26px;
+    text-transform: uppercase;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.search {
+    flex-grow: 4;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-card {
+    background-color: #555;
+    width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(120, 126, 156, 0.7); 
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+.profile-card:hover {
+    box-shadow: 0 5px 15px rgb(51, 83, 170); 
+}
+
+.profile-card h1 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.profile-card img {
+    display: block; 
+    max-width: 90%;
+    border-radius: 10px;
+    margin: 5px auto; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.profile-card img:hover {
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+
+.profile-card p {
+    font-size: 14px; 
+    margin-bottom: 5px; 
+    color: #ddd;
+}
+
+.profile-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-card ul li {
+    font-size: 14px; 
+    margin-bottom: 3px; 
+    color: #bbb;
+}
+
+.profile-card ul li:before {
+    content: "•";
+    margin-right: 5px;
+    color: #888;
+}
+
+.profile-card h3 {
+    font-size: 16px; 
+    margin-bottom: 5px; 
+    color: #fff;
+}
+
+.profile-card .dates {
+    margin-top: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.profile-card .dates p {
+    font-size: 14px; 
+    margin-bottom: 3px; 
+    color: #ddd;
+}
+
+.profile-card .dates ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-card .dates ul li {
+    font-size: 14px; 
+    margin-bottom: 2px; 
+    color: #bbb;
+}
+
+footer {
+    background-color: #333;
+    color: #bbb;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.4);
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
